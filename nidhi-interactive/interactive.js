@@ -1,6 +1,6 @@
 // Define dimensions
-const width = 800, height = 400;
-const margin = { top: 40, bottom: 70, left: 60, right: 30 };
+const width = 1000, height = 400;
+const margin = { top: 40, bottom: 80, left: 60, right: 160 };
 
 // Create SVG container
 d3.csv("../parks_combined.csv").then(function(data) {
