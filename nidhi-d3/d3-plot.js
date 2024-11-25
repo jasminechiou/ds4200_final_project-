@@ -1,9 +1,9 @@
 // Define dimensions
-const width = 1000, height = 400;
-const margin = { top: 40, bottom: 80, left: 60, right: 160 };
+const width = 1000, height = 800;
+const margin = { top: 80, bottom: 80, left: 80, right: 280 };
 
 // Create SVG container
-d3.csv("../parks_combined.csv").then(function(data) {
+d3.csv("../parks_combined.csv").then(function (data) {
   // Process and format data as before
   const groupedData = Array.from(
     d3.rollup(
@@ -56,6 +56,31 @@ d3.csv("../parks_combined.csv").then(function(data) {
     .attr('transform', `translate(${margin.left},0)`)
     .call(d3.axisLeft(y));
 
+  // Add title
+  svg.append('text')
+    .attr('x', width / 2)
+    .attr('y', margin.top / 2)
+    .attr('text-anchor', 'middle')
+    .style('font-size', '18px')
+    .text('Species Count Across Parks by Category');
+
+  // Add x-axis label
+  svg.append('text')
+    .attr('x', width / 2)
+    .attr('y', height - 10)
+    .attr('text-anchor', 'middle')
+    .style('font-size', '14px')
+    .text('Category');
+
+  // Add y-axis label
+  svg.append('text')
+    .attr('x', 0 - (height / 2))
+    .attr('y', 20)
+    .attr('transform', 'rotate(-90)')
+    .attr('text-anchor', 'middle')
+    .style('font-size', '14px')
+    .text('Number of Unique Species');
+
   // Add bars
   svg.append('g')
     .selectAll('g')
@@ -71,9 +96,9 @@ d3.csv("../parks_combined.csv").then(function(data) {
     .attr('height', d => height - margin.bottom - y(d.count))
     .attr('fill', d => color(d.park));
 
-  // Add legend
+  // Add legend to the right side
   const legend = svg.append('g')
-    .attr('transform', `translate(${width - margin.right - 100},${margin.top})`);
+    .attr('transform', `translate(${width - margin.right + 20},${margin.top})`);
 
   legend.selectAll('rect')
     .data(color.domain())
