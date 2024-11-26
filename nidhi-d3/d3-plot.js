@@ -1,5 +1,5 @@
 // Define dimensions
-const width = 1000, height = 800;
+const width = 1000, height = 600;
 const margin = { top: 80, bottom: 80, left: 80, right: 280 };
 
 // Create SVG container
