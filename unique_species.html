@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelFontSize": 12, "titleFontSize": 14}, "title": {"fontSize": 16}}, "data": {"name": "data-4603fe024da076d655da10dae3fa387d"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Park Name", "title": "Park Name", "type": "nominal"}, "tooltip": [{"field": "Category", "type": "nominal"}, {"field": "Park Name", "type": "nominal"}, {"field": "Species Count", "type": "quantitative"}], "x": {"axis": {"labelAngle": -45}, "field": "Category", "sort": null, "title": "Category", "type": "nominal"}, "xOffset": {"field": "Park Name", "type": "nominal"}, "y": {"field": "Species Count", "title": "Number of Unique Species", "type": "quantitative"}}, "height": 400, "title": "Species Families by Number of Unique Species Across Parks", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-4603fe024da076d655da10dae3fa387d": [{"Category": "Amphibian", "Park Name": "Joshua Tree National Park", "Species Count": 3}, {"Category": "Amphibian", "Park Name": "Redwood National Park", "Species Count": 20}, {"Category": "Amphibian", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 12}, {"Category": "Bird", "Park Name": "Joshua Tree National Park", "Species Count": 250}, {"Category": "Bird", "Park Name": "Redwood National Park", "Species Count": 309}, {"Category": "Bird", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 212}, {"Category": "Fish", "Park Name": "Redwood National Park", "Species Count": 190}, {"Category": "Fish", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 11}, {"Category": "Mammal", "Park Name": "Joshua Tree National Park", "Species Count": 54}, {"Category": "Mammal", "Park Name": "Redwood National Park", "Species Count": 101}, {"Category": "Mammal", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 74}, {"Category": "Reptile", "Park Name": "Joshua Tree National Park", "Species Count": 44}, {"Category": "Reptile", "Park Name": "Redwood National Park", "Species Count": 29}, {"Category": "Reptile", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 22}, {"Category": "Vascular Plant", "Park Name": "Joshua Tree National Park", "Species Count": 565}, {"Category": "Vascular Plant", "Park Name": "Redwood National Park", "Species Count": 983}, {"Category": "Vascular Plant", "Park Name": "Sequoia and Kings Canyon National Parks", "Species Count": 1545}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
