@@ -3,7 +3,7 @@ const width = 1000, height = 600;
 const margin = { top: 80, bottom: 80, left: 80, right: 280 };
 
 // Create SVG container
-d3.csv("../parks_combined.csv").then(function (data) {
+d3.csv("../../parks_combined.csv").then(function (data) {
   // Process and format data as before
   const groupedData = Array.from(
     d3.rollup(
