@@ -40,9 +40,9 @@ d3.csv("../../parks_combined.csv").then(function (data) {
     .domain([0, d3.max(groupedData, d => d.count)]).nice()
     .range([height - margin.bottom, margin.top]);
 
-  const color = d3.scaleOrdinal() // Colors for parks
+  const color = d3.scaleOrdinal()
     .domain(groupedData.map(d => d.park))
-    .range(d3.schemeSet2);
+    .range(['#9ecae1', '#4292c6', '#08519c']);
 
   // Add axes
   svg.append('g')
