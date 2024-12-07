@@ -26,15 +26,15 @@ d3.csv("../../parks_combined.csv").then(function (data) {
     .style('background', '#f9f9f9');
 
   // Define scales
-  const x0 = d3.scaleBand() // For the categories
-    .domain(groupedData.map(d => d.category))
-    .range([margin.left, width - margin.right])
-    .padding(0.2);
+  const x0 = d3.scaleBand()
+  .domain(groupedData.map(d => d.category))
+  .range([margin.left, width - margin.right])
+  .padding(0.4);
 
-  const x1 = d3.scaleBand() // For the parks within each category
-    .domain(groupedData.map(d => d.park))
-    .range([0, x0.bandwidth()])
-    .padding(0.1);
+const x1 = d3.scaleBand()
+  .domain(groupedData.map(d => d.park))
+  .range([0, x0.bandwidth()])
+  .padding(0.1);
 
   const y = d3.scaleLinear()
     .domain([0, d3.max(groupedData, d => d.count)]).nice()
